@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input class="number" id="num1" type="number" value=""><button onclick="sumInput()">Введите число</button></input>
+    <button>Готово!</button>
+
+    <script>
+        function sumInput() {
+
+let numbers = [];
+
+
+  let num1 = document.getElementById("num1").value;
+
+  document.getElementById("num1").value = "";
+
+  
+
+  numbers.push(+num1);
+
+let sum = 0;
+  for (let number of numbers) {
+    sum += number;
+  }
+  return sum;
+  document.body.innerHTML = sum;}
+
+
+
+
+    </script>
+</body>
+</html>
