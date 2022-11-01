@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-    <input class="number" id="num1" type="number" value=""><button onclick="sumInput()">Введите число</button></input>
-    <button>Готово!</button>
+  </head>
+  <body>
+    <input class="number" id="num1" type="number" value="" /><button
+      id="add"
+      onclick="addArray()"
+    >
+      Добавить число
+    </button>
+    <button onclick="sumInput()">Готово!</button>
+    <div id="results"></div>
+    <div id="sum"></div>
 
     <script>
-        function sumInput() {
+      let numbers = [];
 
-let numbers = [];
+      function addArray() {
+        let num1 = document.querySelector("input").value;
 
+        numbers.push(num1);
+        document.querySelector("input").value = "";
+        console.log(numbers);
+        numbers.sort(function (a, b) {
+          return a - b;
+        });
+        console.log(numbers);
+      }
 
-  let num1 = document.getElementById("num1").value;
+      function sumInput() {
+        document.getElementById("results").innerHTML = numbers;
+        let sum = 0;
 
-  document.getElementById("num1").value = "";
-
-  
-
-  numbers.push(+num1);
-
-let sum = 0;
-  for (let number of numbers) {
-    sum += number;
-  }
-  return sum;
-  document.body.innerHTML = sum;}
-
-
-
-
+        for (let i = 0; i < numbers.length; i++) {
+          sum += numbers[i];
+        }
+        document.getElementById("sum").innerHTML = sum;
+      }
     </script>
-</body>
+  </body>
 </html>
